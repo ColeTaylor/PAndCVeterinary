@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Appointment>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary"> Appointments</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Appointment" asp-action="Create" class="btn btn-outline-primary">
+                Create Appointment
+            </a>
+        </div>
+    </div>
+
+
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Time
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Pet Name
+            </th>
+            <th>
+                Phone Number
+            </th>
+            <th>
+                Email Address
+            </th>
+            <th>
+                Reason
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+            <tr>
+                <td = "10%">
+                    @obj.AppointmentTime
+                </td>
+                <td = "10%">
+                    @obj.FirstName
+                </td>
+                <td = "10%">
+                    @obj.LastName
+                </td>
+                <td = "10%">
+                    @obj.PetName
+                </td>
+                <td = "10%">
+                    @obj.PhoneNumber
+                </td>
+                <td = "10%">
+                    @obj.EmailAddress
+                </td>
+                <td = "10%">
+                    @obj.Reason
+                </td>
+                <td>
+                    <div class="w-30 btn-group" role="group">
+                        <a asp-controller="Appointment" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-outline-primary"> Edit </a>
+                        <a asp-controller="Appointment" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-outline-danger"> Delete </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
+
